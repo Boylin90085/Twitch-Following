@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Twitch Following</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lobster|VT323'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+<script id="s_list" type="text/x-template">
+  <li><a v-bind:href="list.channel.url" target="_blank"><img v-bind:src="list.channel.logo"/><span>{{list.channel.name}}</span></a>
+    <div class="stream">
+      <p>{{list.channel.stream}}</p>
+    </div>
+  </li>
+</script>
+<script id="o_list" type="text/x-template">
+  <li v-if="list.channel.stream != 'OFFline'"><a v-bind:href="list.channel.url" target="_blank"><img v-bind:src="list.channel.logo"/><span>{{list.channel.name}}</span></a>
+    <div class="stream">
+      <p>{{list.channel.stream}}</p>
+    </div>
+    <iframe v-bind:src="list.channel.stream_video" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+  </li>
+</script>
+<script id="f_list" type="text/x-template">
+  <li v-if="list.channel.stream === 'OFFline'"><a v-bind:href="list.channel.url" target="_blank"><img v-bind:src="list.channel.logo"/><span>{{list.channel.name}}</span></a>
+    <div class="stream">
+      <p>{{list.channel.stream}}</p>
+    </div>
+  </li>
+</script>
+<div id="app">
+  <div class="stream_box">
+    <div class="title"><img src="https://cdn-images-1.medium.com/max/772/1*_Xd4CwnA2v_RH9HUjq5vHQ@2x.png" alt=""/>
+      <div class="button all" v-on:click="stream_check_all">All</div>
+      <div class="button online" v-on:click="stream_check_online">Online</div>
+      <div class="button offline" v-on:click="stream_check_offline">OFFline</div>
+    </div>
+    <div class="stream_list">
+      <ul>
+        <stream_list_all v-if="All_check == true" v-bind:list="follow" v-for="follow in following_list.follows"></stream_list_all>
+        <stream_list_online v-if="Online_check == true" v-bind:list="follow" v-for="follow in following_list.follows"></stream_list_online>
+        <stream_list_offline v-if="Offline_check == true" v-bind:list="follow" v-for="follow in following_list.follows"></stream_list_offline>
+      </ul>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vue-resource@1.3.5'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+html, body, #app {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #19171c;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stream_box {
+  width: 700px;
+  height: 100%;
+}
+.stream_box .title {
+  width: 100%;
+  height: 180px;
+  background-color: #4b367c;
+}
+.stream_box .title img {
+  position: absolute;
+  height: 82px;
+  width: 250px;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+}
+.stream_box .title .button {
+  font-family: "VT323";
+  position: absolute;
+  display: inline-block;
+  border: 3px solid;
+  color: #b19dd8;
+  width: 75px;
+  height: 25px;
+  text-align: center;
+  bottom: 50%;
+  transform: translateY(50%);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.stream_box .title .button:hover {
+  color: white;
+}
+.stream_box .title .all {
+  right: 40%;
+}
+.stream_box .title .online {
+  right: 25%;
+}
+.stream_box .title .offline {
+  right: 10%;
+}
+.stream_box .stream_list {
+  width: 100%;
+}
+.stream_box .stream_list ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.stream_box .stream_list ul li {
+  background-color: #EBEBEB;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+.stream_box .stream_list ul li a {
+  text-decoration: none;
+  color: #4b367c;
+}
+.stream_box .stream_list ul li img {
+  height: 80px;
+  width: 80px;
+}
+.stream_box .stream_list ul li .stream {
+  font-family: "VT323";
+  font-size: 20px;
+  display: inline-block;
+  position: absolute;
+  right: 23%;
+  top: 50%;
+  height: 100%;
+  width: 300px;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #4b367c;
+}
+.stream_box .stream_list ul li .stream p {
+  margin: 40px;
+}
